@@ -1,0 +1,94 @@
+:root {
+  --bg: #07080d;
+  --bg-2: #0b0d14;
+  --surface: #12141c;
+  --surface-2: #171a24;
+  --line: rgba(120, 130, 160, 0.14);
+  --line-strong: rgba(160, 170, 200, 0.24);
+  --text: #e7e9ef;
+  --muted: #8b90a0;
+  --muted-2: #6a6f7e;
+  --sapphire: #4d7cff;
+  --sapphire-dim: rgba(77, 124, 255, 0.14);
+  --gold: #d9be8c;
+  --gold-dim: rgba(217, 190, 140, 0.16);
+  --platinum: #d9dbe1;
+  --green: #3ddb8c;
+  --red: #e0736a;
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --radius: 3px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+input, textarea, select { font-family: inherit; }
+
+.serif { font-family: var(--serif); }
+.label {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold);
+}
+.muted { color: var(--muted); }
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  padding: 0.6rem 1.1rem; border-radius: var(--radius);
+  border: 1px solid var(--line-strong); background: transparent; color: var(--platinum);
+  transition: border-color 200ms, background 200ms, color 200ms;
+}
+.btn:hover { border-color: var(--gold); color: var(--gold); }
+.btn-primary { background: var(--platinum); color: #10121a; border-color: var(--platinum); }
+.btn-primary:hover { background: #fff; color: #10121a; border-color: #fff; }
+.btn-sm { padding: 0.4rem 0.8rem; font-size: 11px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- chips ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: 99px; border: 1px solid var(--line);
+  color: var(--muted);
+}
+.chip.quente { color: var(--red); border-color: rgba(224,115,106,0.4); }
+.chip.morno { color: var(--gold); border-color: rgba(217,190,140,0.4); }
+.chip.frio { color: var(--sapphire); border-color: rgba(77,124,255,0.4); }
+
+/* ---------- inputs ---------- */
+.field {
+  width: 100%; background: var(--surface); border: 1px solid var(--line);
+  color: var(--text); padding: 0.75rem 0.9rem; border-radius: var(--radius);
+  font-size: 14px; outline: none; transition: border-color 200ms;
+}
+.field:focus { border-color: var(--sapphire); }
+.field::placeholder { color: var(--muted-2); }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* utilitários */
+.row { display: flex; align-items: center; }
+.col { display: flex; flex-direction: column; }
+.gap-1 { gap: 0.5rem; } .gap-2 { gap: 1rem; } .gap-3 { gap: 1.5rem; }
+.grow { flex: 1; }
+.spin { width: 22px; height: 22px; border: 2px solid var(--line-strong); border-top-color: var(--gold); border-radius: 50%; animation: sp 0.7s linear infinite; }
+@keyframes sp { to { transform: rotate(360deg); } }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 99px; }
+::-webkit-scrollbar-track { background: transparent; }
